@@ -1,0 +1,123 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20200520-001
+      author: a.musinov
+      changes:
+        - createTable:
+            tableName: employers
+            columns:
+              - column:
+                  name: employer_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                      primaryKey: true
+                      nullable: false
+              - column:
+                  name: employer_name
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: address
+                  type: VARCHAR(50)
+              - column:
+                  name: email
+                  type: VARCHAR(50)
+              - column:
+                  name: phone
+                  type: VARCHAR(50)
+
+  - changeSet:
+      id: 20200520-002
+      author: a.musinov
+      changes:
+        - createTable:
+            tableName: applicants
+            columns:
+              - column:
+                  name: applicant_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: middle_name
+                  type: VARCHAR(50)
+              - column:
+                  name: experience
+                  type: INT
+              - column:
+                  name: activities
+                  type: VARCHAR(50)
+              - column:
+                  name: additional_information
+                  type: VARCHAR(50)
+              - column:
+                  name: salary
+                  type: DECIMAL(20, 2)
+
+  - changeSet:
+      id: 20200520-003
+      author: a.musinov
+      changes:
+        - createTable:
+            tableName: deals
+            columns:
+              - column:
+                  name: deal_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: employer_id
+                  type: BIGINT
+              - column:
+                  name: applicant_id
+                  type: BIGINT
+              - column:
+                  name: position
+                  type: VARCHAR(50)
+              - column:
+                  name: commission_Charge
+                  type: DECIMAL(20, 2)
+
+  - changeSet:
+      id: 20200520-004
+      author: a.musinov
+      changes:
+        - insert:
+            tableName: employers
+            columns:
+              - column:
+                  name:  employer_name
+                  value: "test"
+              - column:
+                  name:  address
+                  value: "street Test"
+              - column:
+                  name:  email
+                  value: "test@ya.ru"
+              - column:
+                  name: phone
+                  value: "89999999999"
+      rollback:
+        - delete:
+            tableName: employers
+            where: employers in ('test')

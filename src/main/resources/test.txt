@@ -1,0 +1,23 @@
+  - changeSet:
+      id: 20200520-004
+      author: a.musinov
+      changes:
+        - insert:
+            tableName: employers
+            columns:
+              - column:
+                name:  employer_name
+                value: "test"
+              - column:
+                name:  address
+                value: "street Test"
+              - column:
+                name:  email
+                value: "test@ya.ru"
+              - column:
+                  name: phone
+                  value: "89999999999"
+      rollback:
+        - delete:
+            tableName: employers
+            where: employers in ("test")
