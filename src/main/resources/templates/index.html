@@ -1,36 +1,24 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="ru">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Бюро по трудоустройству</title>
+    <meta charset="UTF-8" />
+    <title th:utext="${title}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<div align="center">
-    <h1>Employers</h1>
-    <a href="#">Новый работодатель</a>
-    <br/>
-    <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr  th:each="employer : ${allEmployers}">
-                <td th:text="${employer.employerName}"></td>
-                <td th:text="${employer.address}"></td>
-                <td th:text="${employer.email}"></td>
-                <td th:text="${employer.phone}"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<h1 th:utext="${title}" />
+<ul>
+    <li>
+        <a th:href="@{/employers}">Employers</a>
+    </li>
+    <li>
+        <a th:href="@{/}">Applicant</a>
+    </li>
+    <li>
+        <a th:href="@{/}">Deal</a>
+    </li>
+</ul>
+<br/><br/>
+<div>Course work</div>
 </body>
 </html>
