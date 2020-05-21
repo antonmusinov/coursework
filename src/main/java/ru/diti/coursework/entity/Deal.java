@@ -19,7 +19,7 @@ public class Deal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deal_id;
+    private Long dealId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employer_id")
