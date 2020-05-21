@@ -121,3 +121,16 @@ databaseChangeLog:
         - delete:
             tableName: employers
             where: employers in ('test')
+
+  - changeSet:
+      id: 20200521-005
+      author: a.musinov
+      changes:
+        - createSequence:
+            catalogName: employers
+            cycle: false
+            incrementBy: 1
+            ordered: true
+            schemaName: "public"
+            sequenceName: "hibernate_sequence"
+            startValue: "10"
