@@ -9,4 +9,5 @@ public interface EmployerService {
     List<Employer> getAllEmployer();
     void save(Employer employer);
     void update(Employer employer);
+    void delete(Employer employer);
 }

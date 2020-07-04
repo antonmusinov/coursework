@@ -80,4 +80,17 @@ public class EmployerController {
             return "employer-edit";
         }
     }
+
+    @GetMapping(value = {"employer/{employerId}/delete"})
+    public String deleteEmployer(Model model, @PathVariable Long employerId, @ModelAttribute("employer") Employer employer) {
+        try {
+            employerService.delete(employer);
+            return "employer";
+        } catch (Exception e) {
+           model.addAttribute("errorMessage", e.getMessage());
+
+           model.addAttribute("add", false);
+           return "employer";
+        }
+    }
 }

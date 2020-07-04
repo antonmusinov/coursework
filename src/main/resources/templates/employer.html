@@ -26,6 +26,7 @@
             <td th:text="${employer.phone}"></td>
 
             <td><a th:href="@{/employer/{employerId}/edit(employerId=${employer.employerId})}">Edit</a></td>
+            <td><a th:href="@{/employer/{employerId}/delete(employerId=${employer.employerId})}">Delete</a></td>
         </tr>
         </tbody>
     </table>

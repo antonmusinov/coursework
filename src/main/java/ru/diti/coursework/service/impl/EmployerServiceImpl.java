@@ -37,4 +37,9 @@ public class EmployerServiceImpl implements EmployerService {
     public void update(Employer employer) {
         employerRepository.save(employer);
     }
+
+    @Override
+    public void delete(Employer employer) {
+        employerRepository.delete(employer);
+    }
 }

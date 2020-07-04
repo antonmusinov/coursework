@@ -134,3 +134,36 @@ databaseChangeLog:
             schemaName: "public"
             sequenceName: "hibernate_sequence"
             startValue: "10"
+
+  - changeSet:
+      id: 20200520-006
+      author: a.musinov
+      changes:
+        - insert:
+            tableName: applicants
+            columns:
+              - column:
+                  name:  first_name
+                  value: "test"
+              - column:
+                  name:  last_name
+                  value: "Test"
+              - column:
+                  name:  middle_name
+                  value: "tu"
+              - column:
+                  name: experience
+                  value: "1"
+              - column:
+                  name: activities
+                  value: "java"
+              - column:
+                  name: additional_information
+                  value: "teeeest"
+              - column:
+                  name: salary
+                  value: 1000
+      rollback:
+        - delete:
+            tableName: applicants
+            where: applicants in ('test')
