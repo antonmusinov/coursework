@@ -5,5 +5,5 @@ import ru.diti.coursework.entity.Applicant;
 import java.util.List;
 
 public interface ApplicantService {
-    List<Applicant> getAllApplicants();
+    List<Applicant> allApplicants();
 }

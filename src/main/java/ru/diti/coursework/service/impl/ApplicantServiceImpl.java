@@ -1,7 +1,6 @@
 package ru.diti.coursework.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import ru.diti.coursework.entity.Applicant;
 import ru.diti.coursework.repository.api.ApplicantRepository;
@@ -14,13 +13,12 @@ public class ApplicantServiceImpl implements ApplicantService {
 
     private final ApplicantRepository applicantRepository;
 
-    @Autowired
     public ApplicantServiceImpl(ApplicantRepository applicantRepository) {
         this.applicantRepository = applicantRepository;
     }
 
     @Override
-    public List<Applicant> getAllApplicants() {
+    public List<Applicant> allApplicants() {
         return applicantRepository.findAll();
     }
 }

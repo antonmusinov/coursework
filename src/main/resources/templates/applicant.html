@@ -2,31 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Applicant</title>
+    <title>Applicants</title>
 </head>
 <body>
 <div align="center">
-    <h1>applicants</h1>
-    <a href="/applicant/add">New applicant</a>
+    <h1>Applicants</h1>
+    <a href="/employer/add">Новый aoolicant</a>
     <br/>
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Middle Name</th>
-            <th>Квалификация</th>
-            <th>Вид деятельности</th>
-            <th>О себе</th>
-            <th>Salary</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
         </tr>
         </thead>
         <tbody>
-        <!--<tr  th:each="applicant : ${allApplicants}">
+        <tr  th:each="applicant : ${allApplicants}">
             <td th:text="${applicant.firstName}"></td>
             <td th:text="${applicant.lastName}"></td>
             <td th:text="${applicant.middleName}"></td>
-        </tr>-->
+            <td th:text="${applicant.experience}"></td>
+
+            <td><a th:href="@{/employer/{employerId}/edit(employerId=${employer.employerId})}">Edit</a></td>
+        </tr>
         </tbody>
     </table>
 </div>
