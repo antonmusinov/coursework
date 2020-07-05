@@ -40,6 +40,9 @@ public class EmployerServiceImpl implements EmployerService {
 
     @Override
     public void delete(Employer employer) {
-        employerRepository.delete(employer);
+        if (employer.getEmployerId() == null) {
+            throw new RuntimeException("id = null");
+        }
+        employerRepository.deleteById(employer.getEmployerId());
     }
 }

@@ -1,5 +1,6 @@
 package ru.diti.coursework.service.impl;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.diti.coursework.entity.Applicant;
@@ -20,5 +21,31 @@ public class ApplicantServiceImpl implements ApplicantService {
     @Override
     public List<Applicant> allApplicants() {
         return applicantRepository.findAll();
+    }
+
+    @Override
+    public Applicant findById(Long applicantId) {
+        return applicantRepository.getOne(applicantId);
+    }
+
+    @Override
+    public void save(Applicant applicant) {
+        applicantRepository.save(applicant);
+    }
+
+    @Override
+    public void update(Applicant applicant) {
+        applicantRepository.save(applicant);
+    }
+
+    @Override
+    public void delete(Applicant applicant) {
+        if (applicant.getApplicantId() == null) {
+            throw new RuntimeException("id = null");
+        }
+        final Applicant deleteApplicant = applicantRepository.getOne(applicant.getApplicantId());
+        if (ObjectUtils.equals(applicant.getApplicantId(), deleteApplicant.getApplicantId())) {
+            applicantRepository.delete(applicant);
+        }
     }
 }

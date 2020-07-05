@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Create applicant</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-
+<h1 th:text="${add} ? 'Create a Applicant:' : 'Edit a Applicant:'" />
+<a th:href="@{/applicants}">Back to Applicant List</a>
+<br/><br/>
+<form th:action="${add} ? @{/applicant/add} : @{/applicant/{applicantId}/edit(applicantId=${applicant.applicantId})}"
+      th:object="${applicant}" method="POST">
+    <table border="0">
+        <tr>
+            <td>First Name</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{firstName}" /></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{lastName}" /></td>
+        </tr>
+        <tr>
+            <td>Middle Name</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{middleName}" /></td>
+        </tr>
+        <tr>
+            <td>Experience</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{experience}" /></td>
+        </tr>
+        <tr>
+            <td>Activities</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{activities}" /></td>
+        </tr>
+        <tr>
+            <td>Additional Information</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{additionalInformation}" /></td>
+        </tr>
+        <tr>
+            <td>Salary</td>
+            <td>:</td>
+            <td><input type="text" th:field="*{salary}" /></td>
+        </tr>
+    </table>
+    <input type="submit" th:value="${add} ? 'Create' : 'Update'" />
+</form>
 </body>
 </html>

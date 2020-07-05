@@ -167,3 +167,48 @@ databaseChangeLog:
         - delete:
             tableName: applicants
             where: applicants in ('test')
+
+  - changeSet:
+      id: 20200525-001
+      author: a.musinov
+      changes:
+         - createTable:
+              columns:
+                - column:
+                    name: vacancy_id
+                    remarks: Уникальный идентификатор записи
+                    type: bigint
+                - column:
+                    name: employer_id
+                    remarks: Работодатель создавший вакансию
+                    type: bigint
+                - column:
+                    name: applicant_id
+                    remarks: Соискатель который откликнулся на вакансию, если NULL - вакансия актуальна
+                    type: bigint
+                - column:
+                    name: position
+                    remarks: Вакантная должность
+                    type: varchar(255)
+                - column:
+                    name: qualification
+                    remarks: Требуемая квалификация в годах
+                    type: int
+                - column:
+                    name: offered_salary
+                    remarks: Предлагаемая зарплата
+                    type: bigint
+              tableName: vacancies
+
+  - changeSet:
+        id: 20200525-002
+        author: a.musinov
+        changes:
+          - createSequence:
+              catalogName: vacancies
+              cycle: false
+              incrementBy: 1
+              ordered: true
+              schemaName: "public"
+              sequenceName: "vcn_sequence"
+              startValue: "10"

@@ -4,21 +4,30 @@
     <meta charset="UTF-8" />
     <title th:utext="${title}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <style>
+        li {
+            list-style-type: none;
+        }
+    </style>
 </head>
 <body>
-<h1 th:utext="${title}" />
-<ul>
-    <li>
-        <a th:href="@{/employers}">Employers</a>
-    </li>
-    <li>
-        <a th:href="@{/applicants}">Applicants</a>
-    </li>
-    <li>
-        <a th:href="@{/}">Deal</a>
-    </li>
-</ul>
-<br/><br/>
-<div>Course work</div>
+<div align="center">
+    <h1 th:utext="${title}" />
+    <ul>
+        <li>
+            <a th:href="@{/employers}">Employers</a>
+        </li>
+        <li>
+            <a th:href="@{/applicants}">Applicants</a>
+        </li>
+        <li>
+            <a th:href="@{/}">Deal</a>
+        </li>
+    </ul>
+    <br/><br/>
+<div align="footer">
+    <div>Course work</div>
+</div>
+</div>
 </body>
 </html>

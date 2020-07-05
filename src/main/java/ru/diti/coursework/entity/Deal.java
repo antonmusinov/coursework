@@ -22,11 +22,11 @@ public class Deal {
     private Long dealId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employer_id")
+    @JoinColumn(name = "employerId")
     private Employer employer;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "applicant_id")
+    @JoinColumn(name = "applicantId")
     private Applicant applicant;
 
     /**

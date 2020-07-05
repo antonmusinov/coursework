@@ -2,20 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Applicants</title>
+    <title>Applicant</title>
 </head>
 <body>
 <div align="center">
-    <h1>Applicants</h1>
-    <a href="/employer/add">Новый aoolicant</a>
+    <h1>Applicant</h1>
+    <a href="/applicant/add">New Applicant</a>
     <br/>
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Phone</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Experience</th>
+            <th>Activities</th>
+            <th>Additional Information</th>
+            <th>Salary</th>
         </tr>
         </thead>
         <tbody>
@@ -24,8 +27,12 @@
             <td th:text="${applicant.lastName}"></td>
             <td th:text="${applicant.middleName}"></td>
             <td th:text="${applicant.experience}"></td>
+            <td th:text="${applicant.activities}"></td>
+            <td th:text="${applicant.additionalInformation}"></td>
+            <td th:text="${applicant.salary}"></td>
 
-            <td><a th:href="@{/employer/{employerId}/edit(employerId=${employer.employerId})}">Edit</a></td>
+            <td><a th:href="@{/applicant/{applicantId}/edit(applicantId=${applicant.applicantId})}">Edit</a></td>
+            <td><a th:href="@{/applicant/{applicantId}/delete(applicantId=${applicant.applicantId})}">Delete</a></td>
         </tr>
         </tbody>
     </table>
