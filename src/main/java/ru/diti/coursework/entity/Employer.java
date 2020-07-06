@@ -16,7 +16,7 @@ public class Employer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long employer_id;
+    private Long employerId;
 
     /**
      * Название компании
@@ -32,6 +32,4 @@ public class Employer {
 
     @Column(name = "phone")
     private String phone;
-
-
 }

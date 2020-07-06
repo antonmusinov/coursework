@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Deal</title>
+</head>
+<body>
+<div align="center">
+    <h1>Deals</h1>
+    <a href="/deal/add">New Deal</a>
+    <br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>deal Id</th>
+            <th>Employer</th>
+            <th>Applicant</th>
+            <th>Position</th>
+            <th>Commission Charge</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="deal : ${allDeals}">
+            <td th:text="${deal.dealId}"></td>
+            <td th:text="${deal.employer.getEmployerName()}"></td>
+            <td th:text="${deal.applicant.firstName}"></td>
+            <td th:text="${deal.position}"></td>
+            <td th:text="${deal.commissionCharge}"></td>
+
+            <td><a th:href="@{/deal/{dealId}/edit(dealId=${deal.dealId})}">Edit</a></td>
+            <td><a th:href="@{/deal/{dealId}/delete(dealId=${deal.dealId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
